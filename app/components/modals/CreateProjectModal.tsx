@@ -506,7 +506,7 @@ const CreateProjectModal = () => {
         actionLabel={actionLabel}
         secondaryActionLabel={secondaryActionLabel}
         secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
-        title="Create A Project or Profile"
+        title="Create a Listing, or Get an RFP"
         body={bodyContent}
         />
     )
