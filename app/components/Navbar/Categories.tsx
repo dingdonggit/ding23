@@ -5,6 +5,9 @@ import { GrUserWorker } from 'react-icons/gr';
 import { LuConstruction, LuTruck } from 'react-icons/lu';
 import { MdOutlineVilla } from 'react-icons/md';
 import { GiWoodenCrate } from 'react-icons/gi'
+import { VscRequestChanges } from 'react-icons/vsc'
+
+
 import CategoryBox from "../CategoryBox";
 import Container from '../Container';
 
@@ -36,6 +39,11 @@ export const categories = [
     label: 'Products',
     icon: GiWoodenCrate,
     description: 'You can find supplies, appliances, plumming ans specialized products'
+  },
+  {
+    label: 'RFP',
+    icon: VscRequestChanges,
+    description: 'Looking to get an RFP for your project? you can start here'
   }
 ]
 

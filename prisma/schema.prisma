@@ -24,6 +24,7 @@ model User {
   accounts Account[]
   listings Listing[]
   organizations Organization[]
+  RFQ RFQ[]
 }
 
 model Account {
@@ -80,6 +81,7 @@ model Listing {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   individual Individual @relation(fields: [individualId], references: [id], onDelete: Cascade)
   organizations Organization[]
+  RFQ RFQ[]
   
 }
 
@@ -98,6 +100,17 @@ model Organization {
   listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
 }
 
+model RFQ {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  listingId String @db.ObjectId  
+  createdAt DateTime @default(now())
+  companyCategory String
+  companySubCategory String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+}
 
 
 model Individual {

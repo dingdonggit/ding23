@@ -46,7 +46,7 @@ export async function POST(
   minPrice,
   maxPrice,
   individualId,
-  individuals,
+  
   organizations,
    } = body;
 
@@ -85,8 +85,8 @@ export async function POST(
         minPrice,
         maxPrice,
         individualId,
-        individuals,
-        organizations,
+        organizations
+       
   
     }
   });
