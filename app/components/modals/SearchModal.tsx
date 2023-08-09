@@ -136,7 +136,7 @@ const SearchModal = () => {
       <div className="flex flex-col gap-8">
         <Heading
           title="Search Keywords"
-          subtitle="Find your perfect results!"
+          subtitle="Find a Propert, an Organiztion, an Individual or Supplier!"
         />
        <Input 
             id="keyword"

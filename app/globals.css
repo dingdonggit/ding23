@@ -23,3 +23,76 @@ html, body, :root{
   font-size: 16px !important;
   width: 100% !important;
 }
+
+@layer utilities {
+    .animation-delay-2000 {
+       animation-delay: 2s;
+      }
+      .animation-delay-4000 {
+       animation-delay: 4s;
+      }
+    
+}
+@layer components {
+    .featureMain {
+        @apply flex flex-col justify-between bg-gray-50 w-full p-5 rounded-lg shadow hover:scale-95 hover:shadow-lg transition transform duration-100 ease-out;
+
+      }
+    
+}
+
+
+@layer components {
+    .headerLink {
+        @apply cursor-not-allowed text-lg text-[#e5e5e5] transition duration-300 hover:text-[#b3b3b3];
+      }
+    
+}
+
+@layer components {
+.frButton {
+  @apply px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out;
+ }
+}
+@layer components {
+    .contactInput {
+        @apply flex w-full outline-none bg-slate-200/10 rounded-sm border-b px-6 py-4 border-gray-200 text-gray-50 placeholder-gray-300 transition-all focus:border-white focus:text-white; 
+      }
+}
+
+@layer components {
+  .ais-SearchBox-input {
+    @apply focus:outline-none flex-grow bg-transparent placeholder-gray-100 text-gray-100;
+  }
+}
+
+@layer components {
+  .ais-SearchBox-form {
+    @apply  absolute flex !w-full max-w-lg sm:max-w-xl lg:max-w-2xl hover:shadow-lg focus-within:shadow-lg 
+    rounded-md border-2 h-14 border-gray-100 items-center px-5 py-3 ;
+  }
+}
+@layer components {
+.mButton {
+@apply cursor-pointer w-full h-9 focus:bg-indigo-100 text-gray-600 focus:text-indigo-700 focus:ring-indigo-700 focus:ring-2 focus:ring-offset-2 focus:outline-none rounded flex items-center justify-start mb-4
+}
+}
+
+@layer components {
+  .ButtonSpan {
+  @apply text-sm px-2 mx-2 font-medium leading-none text-gray-600
+  }
+  }
+  @layer components {
+    .DataFields {
+    @apply flex h-12 w-2/3 my-2 p-3 border-gray-300 bg-gray-50 rounded-md
+    }
+    }
+    @layer components {
+    .hits {
+    @apply flex rounded-md py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 
+    hover:shadow-lg transition duration-200 ease-out
+    first:border-t 
+    }
+    }
+    
