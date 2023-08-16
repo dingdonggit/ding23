@@ -23,6 +23,8 @@ async function Page({ params }: { params: { id: string } }) {
         authUserId={user.id}
         name={organizationDetails.name}
         username={organizationDetails.username}
+        category={organizationDetails.category}
+        subCategory={organizationDetails.subCategory}
         imgUrl={organizationDetails.image}
         bio={organizationDetails.bio}
         type='Organization'

@@ -19,6 +19,8 @@ async function Page() {
     username: userInfo ? userInfo?.username : user.username,
     name: userInfo ? userInfo?.name : user.firstName ?? "",
     bio: userInfo ? userInfo?.bio : "",
+    category: userInfo ? userInfo?.category : "",
+    subCategory: userInfo ? userInfo?.subCategory : "",
     image: userInfo ? userInfo?.image : user.imageUrl,
   };
 
