@@ -3,96 +3,156 @@
 @tailwind utilities;
 
 
-html, body, :root{
-  height: 100%;
+
+@layer components {
+  /* main */
+  .main-container {
+    @apply flex min-h-screen flex-1 flex-col items-center bg-gray-100 px-6 pb-10 pt-28 max-md:pb-32 sm:px-10;
+  }
+  .activity-card {
+    @apply flex items-center gap-2 rounded-md bg-dark-2 px-7 py-4;
+  }
+
+  /* No Result */
+  .no-result {
+    @apply text-center text-dark-2;
+  }
+
+  /* Community Card */
+  .community-card {
+    @apply w-full rounded-lg bg-light-2 px-4 py-5 sm:w-96;
+  }
+
+  .community-card_btn {
+    @apply rounded-lg bg-blue px-5 py-1.5 text-sm !text-light-1 !important;
+  }
+
+  /* thread card  */
+  .thread-card_bar {
+    @apply relative mt-2 w-0.5 grow rounded-full bg-gray-400;
+  }
+
+  /* User card */
+  .user-card {
+    @apply flex flex-col justify-between gap-4 max-xs:rounded-xl max-xs:bg-light-2 max-xs:p-4 xs:flex-row xs:items-center;
+  }
+
+  .user-card_avatar {
+    @apply flex flex-1 items-start justify-start gap-3 xs:items-center;
+  }
+
+  .user-card_btn {
+    @apply h-auto min-w-[74px] rounded-lg bg-blue text-[12px] text-light-1 !important;
+  }
+
+  .searchbar {
+    @apply flex gap-1 rounded-lg bg-light-2 px-4 py-2;
+  }
+
+  .searchbar_input {
+    @apply border-none bg-light-1 text-dark-2 outline-none !important;
+  }
+
+  .topbar {
+    @apply fixed top-0 z-30 flex w-full items-center justify-between bg-blue px-6 py-3;
+  }
+
+  .bottombar {
+    @apply fixed bottom-0 z-10 w-full rounded-t-3xl bg-gray-200 p-4 backdrop-blur-lg xs:px-7 md:hidden;
+  }
+
+  .bottombar_container {
+    @apply flex items-center justify-between gap-3 xs:gap-5;
+  }
+
+  .bottombar_link {
+    @apply relative flex flex-col items-center gap-2 rounded-lg p-2 sm:flex-1 sm:px-2 sm:py-2.5 bg-blue/40;
+  }
+
+  .leftsidebar {
+    @apply sticky left-0 top-0 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r border-l-gray-400 bg-gray-200 pb-5 pt-28 max-md:hidden active:text-yellow-50 ;
+  }
+
+  .leftsidebar_link {
+    @apply relative flex justify-start gap-4 rounded-lg p-4 ;
+  }
+
+  .pagination {
+    @apply mt-10 flex w-full items-center justify-center gap-5;
+  }
+
+  .rightsidebar {
+    @apply sticky right-0 top-0 z-20 flex h-screen w-fit flex-col justify-between gap-12 overflow-auto border-l-gray-400 bg-gray-200 px-10 pb-6 pt-28 max-xl:hidden;
+  }
+
 }
 
-
-.leaflet-bottom,
-.leaflet-control,
-.leaflet-pane,
-.leaflet-top {
-  z-index: 0 !important;
-}
-
-.rdrMonth {
-  width: 100% !important;
-}
-
-.rdrCalendarWrapper {
-  font-size: 16px !important;
-  width: 100% !important;
-}
 
 @layer utilities {
-    .animation-delay-2000 {
-       animation-delay: 2s;
-      }
-      .animation-delay-4000 {
-       animation-delay: 4s;
-      }
-    
-}
-@layer components {
-    .featureMain {
-        @apply flex flex-col justify-between bg-gray-50 w-full p-5 rounded-lg shadow hover:scale-95 hover:shadow-lg transition transform duration-100 ease-out;
+  .css-invert {
+    @apply invert-[50%] brightness-200;
+  }
 
-      }
-    
-}
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    border-radius: 2px;
+  }
 
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #09090a;
+  }
 
-@layer components {
-    .headerLink {
-        @apply cursor-not-allowed text-lg text-[#e5e5e5] transition duration-300 hover:text-[#b3b3b3];
-      }
-    
-}
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #5c5c7b;
+    border-radius: 50px;
+  }
 
-@layer components {
-.frButton {
-  @apply px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out;
- }
-}
-@layer components {
-    .contactInput {
-        @apply flex w-full outline-none bg-slate-200/10 rounded-sm border-b px-6 py-4 border-gray-200 text-gray-50 placeholder-gray-300 transition-all focus:border-white focus:text-white; 
-      }
-}
-
-@layer components {
-  .ais-SearchBox-input {
-    @apply focus:outline-none flex-grow bg-transparent placeholder-gray-100 text-gray-100;
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #7878a3;
   }
 }
 
-@layer components {
-  .ais-SearchBox-form {
-    @apply  absolute flex !w-full max-w-lg sm:max-w-xl lg:max-w-2xl hover:shadow-lg focus-within:shadow-lg 
-    rounded-md border-2 h-14 border-gray-100 items-center px-5 py-3 ;
-  }
-}
-@layer components {
-.mButton {
-@apply cursor-pointer w-full h-9 focus:bg-indigo-100 text-gray-600 focus:text-indigo-700 focus:ring-indigo-700 focus:ring-2 focus:ring-offset-2 focus:outline-none rounded flex items-center justify-start mb-4
-}
+/* Clerk Responsive fix */
+.cl-organizationSwitcherTrigger .cl-userPreview .cl-userPreviewTextContainer {
+  @apply max-sm:hidden;
 }
 
-@layer components {
-  .ButtonSpan {
-  @apply text-sm px-2 mx-2 font-medium leading-none text-gray-600
-  }
-  }
-  @layer components {
-    .DataFields {
-    @apply flex h-12 w-2/3 my-2 p-3 border-gray-300 bg-gray-50 rounded-md
-    }
-    }
-    @layer components {
-    .hits {
-    @apply flex rounded-md py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 
-    hover:shadow-lg transition duration-200 ease-out
-    first:border-t 
-    }
-    }
-    
+.cl-organizationSwitcherTrigger
+  .cl-organizationPreview
+  .cl-organizationPreviewTextContainer {
+  @apply max-sm:hidden;
+}
+
+/* Shadcn Component Styles */
+
+/* Tab */
+.tab {
+  @apply flex min-h-[50px] flex-1 items-center gap-3 bg-gray-100 text-gray-600 data-[state=active]:bg-gray-100 data-[state=active]:text-dark-2 !important;
+}
+
+.no-focus {
+  @apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+}
+
+/* Account Profile  */
+.account-form_image-label {
+  @apply flex h-24 w-24 items-center justify-center rounded-full bg-gray-100 !important;
+}
+
+.account-form_image-input {
+  @apply cursor-pointer border-none bg-transparent outline-none file:text-blue !important;
+}
+
+.account-form_input {
+  @apply border border-dark-4 bg-gray-200 text-dark-4 !important;
+}
+
+/* Comment Form */
+.comment-form {
+  @apply mt-10 flex items-center gap-4 border-y border-y-dark-2 py-5 max-xs:flex-col !important;
+}
+
+.comment-form_btn {
+  @apply rounded-3xl bg-blue px-8 py-2 !text-sm text-light-1 max-xs:w-full !important;
+}
