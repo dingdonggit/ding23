@@ -1,65 +1,44 @@
 'use client'
+import { OrganizationSwitcher, SignedIn, SignOutButton } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
+import Image from "next/image";
+import Link from "next/link";
 
-import React from 'react'
-import Container from '../Container'
-import Logo from './Logo'
-// import Search from './Search'
-import UserMenu from './UserMenu'
-import { SafeUser } from '@/app/types'
-import Categories from './Categories'
-import { useRouter } from 'next/navigation'
-
-interface NavbarProps {
-  currentUser?: SafeUser | null;
-}
-
-
-const Navbar: React.FC<NavbarProps> = ({
-  currentUser,
-}) => {
-  const router = useRouter();
+function Navbar() {
   return (
-    <div className="fixed w-full bg-white z-40 shadow-sm px-10">
-    <div className="py-4 border-b-[1px]">
-        <Container>
-          <div className=" flex flex-row items-center justify-between gap-3 md:gap-0">
-            <Logo />
-            {/* <Search /> */}
-            <UserMenu currentUser={currentUser}/>
-          </div>
-        </Container>
-    </div>
-    <section>
-    <div className="flex flex-1 items-center justify-center space-x-2 text-gray-500">
-        <ul className="hidden lg:space-x-4 lg:flex">
-          <li
-            className="headerLink  cursor-pointer"
-            onClick={() => router.push("/about")}
-          >
-            About
-          </li>
-          <li
-            className="headerLink  cursor-pointer"
-            onClick={() => router.push("/properties")}
-          >
-            Properties
-          </li>
-          <li
-            className="headerLink  cursor-pointer"
-            onClick={() => router.push("/organizations")}
-          >
-            Organizations
-          </li>
-          <li
-            className="headerLink  cursor-pointer"
-            onClick={() => router.push("/individuals")}
-          >
-            Individuals
-          </li>
-        </ul>
+    <nav className='topbar'>
+      <Link href='/' className='flex items-center gap-4'>
+        <Image src='/logo-icon-w.svg' alt='logo' width={28} height={28} />
+        <p className='text-heading3-bold text-light-1 max-xs:hidden'>DingDong</p>
+      </Link>
+
+      <div className='flex items-center gap-1'>
+        <div className='block md:hidden'>
+          <SignedIn>
+            <SignOutButton>
+              <div className='flex cursor-pointer'>
+                <Image
+                  src='/assets/logout.svg'
+                  alt='logout'
+                  width={24}
+                  height={24}
+                />
+              </div>
+            </SignOutButton>
+          </SignedIn>
+        </div>
+
+        <OrganizationSwitcher
+          appearance={{
+            baseTheme: dark,
+            elements: {
+              organizationSwitcherTrigger: "py-2 px-4",
+            },
+          }}
+        />
       </div>
-    </section>
-    </div>
-  )
+    </nav>
+  );
 }
+
 export default Navbar;
